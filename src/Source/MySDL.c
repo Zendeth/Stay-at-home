@@ -40,6 +40,7 @@ void display_image(SDL_Surface *img)
 {
     int SCREEN_WIDTH = img->w;
     int SCREEN_HEIGHT = img->h;
+    printf("yolo");;
 
     SDL_Window *window = SDL_CreateWindow("Display image", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 
                                                            SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
