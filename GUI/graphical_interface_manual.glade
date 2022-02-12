@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 -->
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkWindow" id="background">
+    <property name="width-request">1000</property>
+    <property name="height-request">650</property>
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">SUDOKU SOLVER</property>
+    <property name="window-position">center</property>
+    <property name="default-height">-1</property>
+    <property name="type-hint">toolbar</property>
+    <property name="gravity">center</property>
+    <child>
+      <object class="GtkFixed" id="window">
+        <property name="name">window</property>
+        <property name="width-request">1000</property>
+        <property name="height-request">650</property>
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkStack" id="image_background">
+            <property name="name">background</property>
+            <property name="width-request">800</property>
+            <property name="height-request">520</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkFixed" id="page_load">
+                <property name="name">solve</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkImage" id="image_load">
+                    <property name="width-request">600</property>
+                    <property name="height-request">400</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="stock">gtk-missing-image</property>
+                  </object>
+                  <packing>
+                    <property name="x">100</property>
+                    <property name="y">30</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkFileChooserButton" id="import">
+                    <property name="width-request">100</property>
+                    <property name="height-request">50</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="title" translatable="yes"/>
+                  </object>
+                  <packing>
+                    <property name="x">350</property>
+                    <property name="y">450</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="next_load">
+                    <property name="label" translatable="yes">Next</property>
+                    <property name="name">next</property>
+                    <property name="width-request">100</property>
+                    <property name="height-request">50</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">650</property>
+                    <property name="y">450</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="name">page_load</property>
+                <property name="title" translatable="yes">load</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFixed" id="page_filter">
+                <property name="name">filters</property>
+                <property name="width-request">600</property>
+                <property name="height-request">400</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkImage" id="image_filter">
+                    <property name="width-request">600</property>
+                    <property name="height-request">400</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="stock">gtk-missing-image</property>
+                  </object>
+                  <packing>
+                    <property name="x">100</property>
+                    <property name="y">30</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="next_filter">
+                    <property name="label" translatable="yes">next</property>
+                    <property name="width-request">100</property>
+                    <property name="height-request">50</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">650</property>
+                    <property name="y">450</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="name">filters</property>
+                <property name="title" translatable="yes">filters</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFixed" id="page_grid">
+                <property name="name">grid</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkImage" id="image_grid">
+                    <property name="width-request">600</property>
+                    <property name="height-request">400</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="stock">gtk-missing-image</property>
+                  </object>
+                  <packing>
+                    <property name="x">100</property>
+                    <property name="y">30</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="next_grid">
+                    <property name="label" translatable="yes">next</property>
+                    <property name="width-request">100</property>
+                    <property name="height-request">50</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">650</property>
+                    <property name="y">450</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="name">grid detection</property>
+                <property name="title" translatable="yes">grid detection</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFixed" id="page_parse">
+                <property name="name">parse</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkImage" id="image_parse">
+                    <property name="width-request">600</property>
+                    <property name="height-request">400</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="stock">gtk-missing-image</property>
+                  </object>
+                  <packing>
+                    <property name="x">100</property>
+                    <property name="y">30</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="exit">
+                    <property name="label" translatable="yes">Exit</property>
+                    <property name="width-request">100</property>
+                    <property name="height-request">50</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                  </object>
+                  <packing>
+                    <property name="x">650</property>
+                    <property name="y">450</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="name">solve</property>
+                <property name="title" translatable="yes">solve</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFixed" id="page_solve">
+                <property name="name">solve</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkImage" id="image_solve">
+                    <property name="width-request">600</property>
+                    <property name="height-request">400</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="stock">gtk-missing-image</property>
+                  </object>
+                  <packing>
+                    <property name="x">100</property>
+                    <property name="y">30</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="name">end</property>
+                <property name="title" translatable="yes">end</property>
+                <property name="position">4</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="x">100</property>
+            <property name="y">50</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkStackSwitcher" id="stack_switcher">
+            <property name="name">buttons</property>
+            <property name="width-request">500</property>
+            <property name="height-request">40</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="stack">image_background</property>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">30</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
