@@ -1,13 +1,13 @@
-CC=gcc
+CC=gcc #-fsanitize=address
 CPPFLAGS= -Wall -Wextra -std=c99 -O3 -g -D__NO_INLINE__
-LDFLAGS= -fsanitize=address
+LDFLAGS= 
 LDLIBS= -lSDL2 -lSDL2_image -lSDL2_ttf -lm `sdl2-config --cflags --libs`
 GTK=`pkg-config --cflags --libs gtk+-3.0` -export-dynamic
 
 
 all : setup build
 
-build: preprocessing mysdl main
+build: preprocessing mysdl patternfinder validfinder draw main
 	${CC} ${CFLAGS} bin/*.o ${LDLIBS} -o main
 
 main:
@@ -18,6 +18,15 @@ preprocessing:
 
 mysdl:
 	$(CC) $(CFLAGS) $(LDLIBS) -o bin/MySDL.o -c src/Source/MySDL.c
+
+patternfinder:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/PatternFinder.o -c src/Source/PatternFinder.c
+
+validfinder:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/ValidFinder.o -c src/Source/ValidFinder.c
+
+draw:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/Draw.o -c src/Source/Draw.c
 
 setup : fix_libs setup_dirs
 
