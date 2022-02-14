@@ -1,7 +1,7 @@
 CC=gcc #-fsanitize=address
 CPPFLAGS= -Wall -Wextra -std=c99 -O3 -g -D__NO_INLINE__
 LDFLAGS= 
-LDLIBS= -lSDL2 -lSDL2_image -lSDL2_ttf -lm `sdl2-config --cflags --libs`
+LDLIBS= -lSDL2 -lSDL2_image  -lm `sdl2-config --cflags --libs`
 GTK=`pkg-config --cflags --libs gtk+-3.0` -export-dynamic
 
 
@@ -28,7 +28,7 @@ validfinder:
 draw:
 	$(CC) $(CFLAGS) $(LDLIBS) -o bin/Draw.o -c src/Source/Draw.c
 	
-demo: fromnayuki encoder demoencoder
+demo: setup fromnayuki encoder demoencoder
 	${CC} ${CFLAGS} bin/demoencoder.o bin/encoder.o bin/fromnayuki.o ${LDLIBS} -o demo
 
 demoencoder:
