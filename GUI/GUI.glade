@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 -->
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <requires lib="webkit2gtk" version="2.28"/>
+  <object class="GtkWindow" id="window">
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkStack">
+            <property name="width-request">800</property>
+            <property name="height-request">530</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkFixed" id="mainpage">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="width-request">400</property>
+                    <property name="height-request">400</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="pixbuf">test.jpg</property>
+                  </object>
+                  <packing>
+                    <property name="x">50</property>
+                    <property name="y">80</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="start">
+                    <property name="label" translatable="yes">START</property>
+                    <property name="use-action-appearance">True</property>
+                    <property name="width-request">150</property>
+                    <property name="height-request">75</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                    <signal name="clicked" handler="on_start_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">600</property>
+                    <property name="y">180</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="aboutus">
+                    <property name="label" translatable="yes">ABOUT US</property>
+                    <property name="width-request">150</property>
+                    <property name="height-request">75</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                    <signal name="clicked" handler="on_aboutus_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">600</property>
+                    <property name="y">300</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkFixed">
+                    <property name="width-request">100</property>
+                    <property name="height-request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <object class="WebKitWebView" type-func="webkit_web_view_get_type">
+                        <property name="width-request">400</property>
+                        <property name="height-request">400</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="x">232</property>
+                        <property name="y">141</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">-71</property>
+                    <property name="y">54</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="name">page2</property>
+                <property name="title" translatable="yes">page2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkFixed" id="qrcodepage">
+                <property name="width-request">32</property>
+                <property name="height-request">32</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkButton" id="encode">
+                    <property name="label" translatable="yes">GENERATE QR CODE</property>
+                    <property name="width-request">200</property>
+                    <property name="height-request">75</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                    <signal name="clicked" handler="on_encode_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">300</property>
+                    <property name="y">150</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="decode">
+                    <property name="label" translatable="yes">OPEN LINK BY QR CODE</property>
+                    <property name="width-request">200</property>
+                    <property name="height-request">75</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                    <signal name="clicked" handler="on_decode_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">300</property>
+                    <property name="y">270</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="back">
+                    <property name="label" translatable="yes">BACK</property>
+                    <property name="width-request">200</property>
+                    <property name="height-request">75</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                    <signal name="clicked" handler="on_back_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="x">300</property>
+                    <property name="y">390</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="name">page3</property>
+                <property name="title" translatable="yes">page3</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="x">100</property>
+            <property name="y">100</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width-request">200</property>
+            <property name="height-request">80</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">STAY AT HOME</property>
+            <attributes>
+              <attribute name="scale" value="5"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="x">250</property>
+            <property name="y">45</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
