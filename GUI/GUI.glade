@@ -3,7 +3,7 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <requires lib="webkit2gtk" version="2.28"/>
-  <object class="GtkWindow">
+  <object class="GtkWindow" id="window">
     <property name="can-focus">False</property>
     <child>
       <object class="GtkFixed">
@@ -16,7 +16,7 @@
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <child>
-              <object class="GtkFixed" id="Start_page">
+              <object class="GtkFixed" id="mainpage">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <child>
@@ -63,6 +63,33 @@
                     <property name="y">300</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkFixed">
+                    <property name="width-request">100</property>
+                    <property name="height-request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <object class="WebKitWebView" type-func="webkit_web_view_get_type">
+                        <property name="width-request">400</property>
+                        <property name="height-request">400</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="x">232</property>
+                        <property name="y">141</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="x">-71</property>
+                    <property name="y">54</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="name">page2</property>
@@ -70,19 +97,20 @@
               </packing>
             </child>
             <child>
-              <object class="GtkFixed">
+              <object class="GtkFixed" id="qrcodepage">
                 <property name="width-request">32</property>
                 <property name="height-request">32</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkButton" id="encode">
                     <property name="label" translatable="yes">GENERATE QR CODE</property>
                     <property name="width-request">200</property>
                     <property name="height-request">75</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
+                    <signal name="clicked" handler="on_encode_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="x">300</property>
@@ -90,13 +118,14 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkButton" id="decode">
                     <property name="label" translatable="yes">OPEN LINK BY QR CODE</property>
                     <property name="width-request">200</property>
                     <property name="height-request">75</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
+                    <signal name="clicked" handler="on_decode_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="x">300</property>
@@ -104,13 +133,14 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkButton" id="back">
                     <property name="label" translatable="yes">BACK</property>
                     <property name="width-request">200</property>
                     <property name="height-request">75</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
+                    <signal name="clicked" handler="on_back_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="x">300</property>
@@ -144,33 +174,6 @@
           <packing>
             <property name="x">250</property>
             <property name="y">45</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkFixed">
-            <property name="width-request">600</property>
-            <property name="height-request">600</property>
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <child>
-              <object class="WebKitWebView" type-func="webkit_web_view_get_type">
-                <property name="width-request">400</property>
-                <property name="height-request">400</property>
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <child>
-                  <placeholder/>
-                </child>
-              </object>
-              <packing>
-                <property name="x">232</property>
-                <property name="y">141</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="x">101</property>
-            <property name="y">64</property>
           </packing>
         </child>
       </object>
