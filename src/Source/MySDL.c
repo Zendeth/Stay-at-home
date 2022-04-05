@@ -10,7 +10,7 @@ void wait_for_keypressed(void) {
     // Switch on event type
     switch (event.type) {
       // Someon e pressed a key -> leave the function
-      case SDL_KEYDOWN: return;
+      case SDL_KEYUP: return;
       default: break;
     }
     // Loop until we got the expected event
@@ -40,7 +40,6 @@ void display_image(SDL_Surface *img)
 {
     int SCREEN_WIDTH = img->w;
     int SCREEN_HEIGHT = img->h;
-    printf("yolo");;
 
     SDL_Window *window = SDL_CreateWindow("Display image", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 
                                                            SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);

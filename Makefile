@@ -7,7 +7,7 @@ GTK=`pkg-config --cflags --libs gtk+-3.0` -export-dynamic
 
 all: setup build demo
 
-build: preprocessing mysdl patternfinder validfinder draw main
+build: preprocessing mysdl patternfinder validfinder draw alignmentfinder geotrans tomatrix segmentation extractcode main
 	${CC} ${CFLAGS} bin/*.o ${LDLIBS} -o main
 
 main:
@@ -27,6 +27,21 @@ validfinder:
 
 draw:
 	$(CC) $(CFLAGS) $(LDLIBS) -o bin/Draw.o -c src/Source/Draw.c
+
+alignmentfinder: 
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/AlignmentFinder.o -c src/Source/AlignmentFinder.c
+
+geotrans:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/GeoTans.o -c src/Source/GeoTrans.c
+
+tomatrix:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/ToMatrix.o -c src/Source/ToMatrix.c
+
+segmentation:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/Segmentation.o -c src/Source/Segmentation.c
+
+extractcode:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/ExtractCode.o -c src/Source/ExtractCode.c
 	
 demo: setup fromnayuki encoder demoencoder
 	${CC} ${CFLAGS} bin/demoencoder.o bin/encoder.o bin/fromnayuki.o ${LDLIBS} -o demo
