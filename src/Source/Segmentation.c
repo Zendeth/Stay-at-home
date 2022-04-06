@@ -1,4 +1,7 @@
 # include "../Header/Segmentation.h"
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 /*---Free Functions---*/
 
@@ -87,12 +90,12 @@ static inline
 void ImageProcessingDemo(SDL_Surface *img)
 {
     grayscale(img);
-    display_image(img);
+    //display_image(img);
     int threshold = otsu(img);
     if(threshold == 0)
         threshold = 1;
     binarize(img, threshold);
-    display_image(img);
+    //display_image(img);
 }
 
 static inline
@@ -105,6 +108,32 @@ void writeWhiteEpi(char *s)
             s[i] = 'w';
         i++;
     }
+}
+
+// turn qr code into pbm file
+void into_pbm(char ** grid, int s, const char* filename)
+{
+    FILE* fptr;
+    fptr = fopen(filename,"w");
+
+    if (fptr == NULL)
+    {
+        fprintf(stderr, "Error creating result file!");
+        exit(1);
+    }
+    fprintf(fptr, "P1\n%u %u\n", s, s);
+
+    
+    for (ssize_t i = 0; i < s; i++)
+    {
+        for (ssize_t j = 0; j < s; j++)
+        {
+            fprintf(fptr, "%c ", grid[i][j]);
+        }
+        fprintf(fptr, "\n");
+    }
+    
+    fclose(fptr);
 }
 
 /*struct PCode *Segmentation(SDL_Surface *img)
@@ -159,18 +188,19 @@ int SegmentationDemo(SDL_Surface *img, SDL_Surface *demo)
         err(EXIT_FAILURE, "Segmentation error : No Valid QrCode found");
     }
     drawFP(demo, f->centers, f->ems_vector, fp->indexA);
-    display_image(demo);
+    //display_image(demo);
     printf("|     - Finder Pattern and QrCode found and validated\n");
     struct GeoImg *g = GeoTransform(img, fp);
     ImageProcessingDemo(g->img);
     printf("|     - Affine transformation done\n");
     struct QrCode *qr = extract_QrCode(g);
-    display_image(g->img);
+    //display_image(g->img);
     printf("|     - Version determined -> V = %d\n", qr->version);
     printf("|     - Alignement Patterns found and image sampled into bit matrix \n");
     printf("|\n");
     printf("| QR Matrix :\n");
     print_mat(qr->mat, qr->version * 4 + 17);
+    into_pbm(qr->mat, qr->version * 4 + 17, "result_seg.pbm");
     //free_segmentation(f, fp, g, qr);*/
     SDL_FreeSurface(img);
     SDL_FreeSurface(demo);

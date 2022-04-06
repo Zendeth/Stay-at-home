@@ -5,9 +5,9 @@ LDLIBS= -lSDL2 -lSDL2_image  -lm `sdl2-config --cflags --libs`
 GTK=`pkg-config --cflags --libs gtk+-3.0` -export-dynamic
 
 
-all: setup build demo
+all: setup build
 
-build: preprocessing mysdl patternfinder validfinder draw alignmentfinder geotrans tomatrix segmentation extractcode main
+build: preprocessing mysdl patternfinder validfinder draw alignmentfinder geotrans tomatrix segmentation extractcode main decoder bch blocks data modules pbm rs
 	${CC} ${CFLAGS} bin/*.o ${LDLIBS} -o main
 
 main:
@@ -42,18 +42,40 @@ segmentation:
 
 extractcode:
 	$(CC) $(CFLAGS) $(LDLIBS) -o bin/ExtractCode.o -c src/Source/ExtractCode.c
-	
-demo: setup fromnayuki encoder demoencoder
-	${CC} ${CFLAGS} bin/demoencoder.o bin/encoder.o bin/fromnayuki.o ${LDLIBS} -o demo
 
-demoencoder:
-	$(CC) $(CFLAGS) -I./src/Header -o bin/demoencoder.o -c src/Source/demoencoder.c
 
-encoder:
-	$(CC) $(CFLAGS) -I./src/Header -o bin/encoder.o -c src/Source/encoder.c
+decoder: 
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/decoder.o -c src/Source/decoder.c
 
-fromnayuki:
-	$(CC) $(CFLAGS) -I./src/Header -o bin/fromnayuki.o -c src/Source/fromnayuki.c
+bch:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/bch.o -c src/Source/bch.c
+
+blocks:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/blocks.o -c src/Source/blocks.c
+
+data:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/data.o -c src/Source/data.c
+
+modules:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/modules.o -c src/Source/modules.c
+
+pbm:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/pbm.o -c src/Source/pbm.c
+
+rs:
+	$(CC) $(CFLAGS) $(LDLIBS) -o bin/rs.o -c src/Source/rs.c
+
+#demo: setup fromnayuki encoder demoencoder
+#	${CC} ${CFLAGS} bin/demoencoder.o bin/encoder.o bin/fromnayuki.o ${LDLIBS} -o demo
+
+#demoencoder:
+#	$(CC) $(CFLAGS) -I./src/Header -o bin/demoencoder.o -c src/Source/demoencoder.c
+
+#encoder:
+#	$(CC) $(CFLAGS) -I./src/Header -o bin/encoder.o -c src/Source/encoder.c
+
+#fromnayuki:
+#	$(CC) $(CFLAGS) -I./src/Header -o bin/fromnayuki.o -c src/Source/fromnayuki.c
 
 setup : fix_libs setup_dirs
 
