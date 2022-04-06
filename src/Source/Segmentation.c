@@ -177,9 +177,9 @@ int SegmentationDemo(SDL_Surface *img, SDL_Surface *demo)
 {
     printf("|----------QRCode to matrix demonstration----------");
     printf("|\n|\n");
-    
+    printf("|     - Image preprocessing\n");
     ImageProcessingDemo(img);
-    printf("|     - Image preprocessing Done\n");
+    
     struct FPat *f = findFP(img);
     struct FPresults *fp = QrCode_found(f);
     if(fp == NULL)
@@ -188,11 +188,17 @@ int SegmentationDemo(SDL_Surface *img, SDL_Surface *demo)
         err(EXIT_FAILURE, "Segmentation error : No Valid QrCode found");
     }
     drawFP(demo, f->centers, f->ems_vector, fp->indexA);
+<<<<<<< HEAD
     //display_image(demo);
+=======
+>>>>>>> 9c8cb9775880aae85526c82e2b5a9f9a962cecb1
     printf("|     - Finder Pattern and QrCode found and validated\n");
+    display_image(demo);
+    
     struct GeoImg *g = GeoTransform(img, fp);
+    printf("|     - Affine transformation\n");
     ImageProcessingDemo(g->img);
-    printf("|     - Affine transformation done\n");
+    
     struct QrCode *qr = extract_QrCode(g);
     //display_image(g->img);
     printf("|     - Version determined -> V = %d\n", qr->version);
