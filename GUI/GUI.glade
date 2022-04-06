@@ -3,6 +3,58 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <requires lib="webkit2gtk" version="2.28"/>
+  <object class="GtkWindow" id="encoding_window">
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkFixed">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkEntry">
+            <property name="width-request">380</property>
+            <property name="height-request">80</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+          </object>
+          <packing>
+            <property name="x">297</property>
+            <property name="y">153</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="encod">
+            <property name="width-request">100</property>
+            <property name="height-request">80</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">ENCODING
+
+Please enter a url :</property>
+            <property name="justify">center</property>
+          </object>
+          <packing>
+            <property name="x">425</property>
+            <property name="y">44</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="encode_button">
+            <property name="label" translatable="yes">ENCODE</property>
+            <property name="width-request">154</property>
+            <property name="height-request">80</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <signal name="clicked" handler="on_encode_button_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">408</property>
+            <property name="y">311</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkWindow" id="window">
     <property name="can-focus">False</property>
     <child>
@@ -41,7 +93,8 @@
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
-                    <signal name="clicked" handler="on_start_clicked" swapped="no"/>
+                    <signal name="button-press-event" handler="on_start_button_press_event" object="encoding_window" swapped="yes"/>
+                    <signal name="clicked" handler="on_start_clicked" object="encoding_window" swapped="yes"/>
                   </object>
                   <packing>
                     <property name="x">600</property>
