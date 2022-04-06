@@ -12,9 +12,10 @@ int gui(int argc, char** argv)
 {
 	gtk_init(&argc, &argv);
 
-	builder = gtk_builder_new_from_file("gui.glade");
+	builder = gtk_builder_new_from_file("GUI.glade");
 
 	window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
+	encode_window = GTK_WIDGET(gtk_builder_get_object(builder, "encode_window"));
 
 	gtk_builder_connect_signals(builder, NULL);
 
@@ -22,6 +23,7 @@ int gui(int argc, char** argv)
 	button_next = GTK_WIDGET(gtk_builder_get_object(builder, "button_next"));
 	button_back = GTK_WIDGET(gtk_builder_get_object(builder, "button_back"));
 	button_aboutus = GTK_WIDGET(gtk_builder_get_object(builder, "button_aboutus"));
+	button_start = GTK_WIDGET(gtk_builder_get_object(builder, "button_start"));
 	mainpage = GTK_WIDGET(gtk_builder_get_object(builder, "mainpage"));
 	qrcodepage = GTK_WIDGET(gtk_builder_get_object(builder, "qrcodepage"));
 
@@ -30,6 +32,8 @@ int gui(int argc, char** argv)
 	//g_signal_connect(button_next, "clicked", G_CALLBACK(next_fixed), NULL);
 	//g_signal_connect(button_back, "clicked", G_CALLBACK(previous_fixed), NULL);
 	g_signal_connect_swapped(button_aboutus, "clicked", G_CALLBACK(gtk_widget_hide), &mainpage);
+
+	g_signal_connect_swapped(button_start, "clicked", G_CALLBACK(gtk_widget_show_all(GTK_WIDGET(encode_window))), &mainpage);
 
 	gtk_widget_show_all(GTK_WIDGET(window));
 
