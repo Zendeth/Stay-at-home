@@ -3,58 +3,6 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <requires lib="webkit2gtk" version="2.28"/>
-  <object class="GtkWindow" id="encoding_window">
-    <property name="can-focus">False</property>
-    <child>
-      <object class="GtkFixed">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <child>
-          <object class="GtkEntry">
-            <property name="width-request">380</property>
-            <property name="height-request">80</property>
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-          </object>
-          <packing>
-            <property name="x">297</property>
-            <property name="y">153</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="encod">
-            <property name="width-request">100</property>
-            <property name="height-request">80</property>
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="label" translatable="yes">ENCODING
-
-Please enter a url :</property>
-            <property name="justify">center</property>
-          </object>
-          <packing>
-            <property name="x">425</property>
-            <property name="y">44</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="encode_button">
-            <property name="label" translatable="yes">ENCODE</property>
-            <property name="width-request">154</property>
-            <property name="height-request">80</property>
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <signal name="clicked" handler="on_encode_button_clicked" swapped="no"/>
-          </object>
-          <packing>
-            <property name="x">408</property>
-            <property name="y">311</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-  </object>
   <object class="GtkWindow" id="window">
     <property name="can-focus">False</property>
     <child>
@@ -227,6 +175,99 @@ Please enter a url :</property>
           <packing>
             <property name="x">250</property>
             <property name="y">45</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed">
+            <property name="width-request">800</property>
+            <property name="height-request">500</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkEntry">
+                <property name="width-request">380</property>
+                <property name="height-request">80</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="x">207</property>
+                <property name="y">150</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="encod2">
+                <property name="width-request">123</property>
+                <property name="height-request">80</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">ENCODING
+
+Please enter a url :</property>
+                <property name="justify">center</property>
+              </object>
+              <packing>
+                <property name="x">335</property>
+                <property name="y">47</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="encode_button2">
+                <property name="label" translatable="yes">ENCODE</property>
+                <property name="width-request">154</property>
+                <property name="height-request">80</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+              </object>
+              <packing>
+                <property name="x">320</property>
+                <property name="y">306</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="x">95</property>
+            <property name="y">129</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed">
+            <property name="width-request">763</property>
+            <property name="height-request">491</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkImage">
+                <property name="width-request">352</property>
+                <property name="height-request">301</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="pixbuf">test.jpg</property>
+              </object>
+              <packing>
+                <property name="x">198</property>
+                <property name="y">47</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">BACK</property>
+                <property name="width-request">200</property>
+                <property name="height-request">80</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+              </object>
+              <packing>
+                <property name="x">277</property>
+                <property name="y">355</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="x">124</property>
+            <property name="y">133</property>
           </packing>
         </child>
       </object>
