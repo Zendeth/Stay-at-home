@@ -111,7 +111,7 @@ void writeWhiteEpi(char *s)
 }
 
 // turn qr code into pbm file
-void into_pbm(char ** grid, int s, const char* filename)
+void into_file(char ** grid, int s, const char* filename)
 {
     FILE* fptr;
     fptr = fopen(filename,"w");
@@ -188,12 +188,9 @@ int SegmentationDemo(SDL_Surface *img, SDL_Surface *demo)
         err(EXIT_FAILURE, "Segmentation error : No Valid QrCode found");
     }
     drawFP(demo, f->centers, f->ems_vector, fp->indexA);
-<<<<<<< HEAD
-    //display_image(demo);
-=======
->>>>>>> 9c8cb9775880aae85526c82e2b5a9f9a962cecb1
+
     printf("|     - Finder Pattern and QrCode found and validated\n");
-    display_image(demo);
+    //display_image(demo);
     
     struct GeoImg *g = GeoTransform(img, fp);
     printf("|     - Affine transformation\n");
@@ -206,7 +203,7 @@ int SegmentationDemo(SDL_Surface *img, SDL_Surface *demo)
     printf("|\n");
     printf("| QR Matrix :\n");
     print_mat(qr->mat, qr->version * 4 + 17);
-    into_pbm(qr->mat, qr->version * 4 + 17, "result_seg.pbm");
+    into_file(qr->mat, qr->version * 4 + 17, "result_seg.pbm");
     //free_segmentation(f, fp, g, qr);*/
     SDL_FreeSurface(img);
     SDL_FreeSurface(demo);

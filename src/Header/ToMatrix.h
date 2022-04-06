@@ -4,7 +4,7 @@
 # include <stdlib.h>
 # include "GeoTrans.h"
 # include "Draw.h"
-# include "Data.h"
+# include "Data_c.h"
 
 struct QrCode
 {

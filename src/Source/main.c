@@ -1,3 +1,9 @@
+#include <stdlib.h>
+#include <string.h>
+
+#include "../Header/pbm.h"
+#include "../Header/decoder.h"
+
 # include "../Header/MySDL.h"
 # include "../Header/PreProcessing.h"
 # include "../Header/PatternFinder.h"
@@ -46,4 +52,5 @@ int main(int argc, char *argv[])
 
     save_image(img,"output/test.png");*/
     SegmentationDemo(img,show);
+	decode_demo(argv[2]);
 }
