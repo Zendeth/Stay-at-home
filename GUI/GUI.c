@@ -6,7 +6,11 @@ GtkWidget		*button_back;
 GtkWidget		*button_aboutus;
 GtkWidget		*mainpage;
 GtkWidget		*qrcodepage;
+GtkWidget		*decodepage;
+GtkWidget		*encodepage;
 GtkBuilder		*builder;
+
+// https://developer-old.gnome.org/gobject/stable/gobject-Signals.html#g-signal-connect
 
 int gui(int argc, char** argv)
 {
@@ -14,18 +18,22 @@ int gui(int argc, char** argv)
 
 	builder = gtk_builder_new_from_file("GUI.glade");
 
-	window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
-	encode_window = GTK_WIDGET(gtk_builder_get_object(builder, "encode_window"));
-
 	gtk_builder_connect_signals(builder, NULL);
-
-	qrcodepage = GTK_WIDGET(gtk_builder_get_object(builder, "qrcodepage"));
-	button_next = GTK_WIDGET(gtk_builder_get_object(builder, "button_next"));
-	button_back = GTK_WIDGET(gtk_builder_get_object(builder, "button_back"));
+	
+	mainpage = GTK_WIDGET(gtk_builder_get_object(builder, "mainpage"));
 	button_aboutus = GTK_WIDGET(gtk_builder_get_object(builder, "button_aboutus"));
 	button_start = GTK_WIDGET(gtk_builder_get_object(builder, "button_start"));
-	mainpage = GTK_WIDGET(gtk_builder_get_object(builder, "mainpage"));
+
 	qrcodepage = GTK_WIDGET(gtk_builder_get_object(builder, "qrcodepage"));
+	button_back_qr = GTK_WIDGET(gtk_builder_get_object(builder, "button_back_qr"));
+
+	decodepage = GTK_WIDGET(gtk_builder_get_object(builder, "decodepage"));
+	button_next_de = GTK_WIDGET(gtk_builder_get_object(builder, "button_next_de"));
+	button_back_de = GTK_WIDGET(gtk_builder_get_object(builder, "button_back_de"));
+
+	encodepage = GTK_WIDGET(gtk_builder_get_object(builder, "encodepage"));
+	button_next_en = GTK_WIDGET(gtk_builder_get_object(builder, "button_next_en"));
+	button_back_en = GTK_WIDGET(gtk_builder_get_object(builder, "button_back_en"));
 
 
 	//Connects event handlers.
@@ -38,6 +46,7 @@ int gui(int argc, char** argv)
 	gtk_widget_show_all(GTK_WIDGET(window));
 
 	gtk_main();
+	
 	return EXIT_SUCCESS;
 
 }
