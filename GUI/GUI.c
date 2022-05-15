@@ -47,7 +47,7 @@ int gui(int argc, char** argv)
 
 	g_signal_connect(button_start, "clicked", G_CALLBACK(gtk_widget_hide), &mainpage);
 
-	gtk_widget_show_all(GTK_WIDGET(window));
+	//gtk_widget_show_all(GTK_WIDGET(window));
 
 	gtk_main();
 	
