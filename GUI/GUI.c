@@ -1,4 +1,5 @@
 #include <gtk/gtk.h>
+#include <webkit2/webkit2.h>
 
 GtkWidget		*window;
 GtkWidget		*button_next;
@@ -15,6 +16,9 @@ GtkBuilder		*builder;
 int gui(int argc, char** argv)
 {
 	gtk_init(&argc, &argv);
+
+	webkit_web_view_get_type();
+	webkit_settings_get_type();
 
 	builder = gtk_builder_new_from_file("GUI.glade");
 
@@ -39,9 +43,9 @@ int gui(int argc, char** argv)
 	//Connects event handlers.
 	//g_signal_connect(button_next, "clicked", G_CALLBACK(next_fixed), NULL);
 	//g_signal_connect(button_back, "clicked", G_CALLBACK(previous_fixed), NULL);
-	g_signal_connect_swapped(button_aboutus, "clicked", G_CALLBACK(gtk_widget_hide), &mainpage);
+	g_signal_connect(button_aboutus, "clicked", G_CALLBACK(gtk_widget_hide), &mainpage);
 
-	g_signal_connect_swapped(button_start, "clicked", G_CALLBACK(gtk_widget_show_all(GTK_WIDGET(encode_window))), &mainpage);
+	g_signal_connect(button_start, "clicked", G_CALLBACK(gtk_widget_hide), &mainpage);
 
 	gtk_widget_show_all(GTK_WIDGET(window));
 
@@ -50,3 +54,4 @@ int gui(int argc, char** argv)
 	return EXIT_SUCCESS;
 
 }
+
