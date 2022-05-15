@@ -90,12 +90,12 @@ static inline
 void ImageProcessingDemo(SDL_Surface *img)
 {
     grayscale(img);
-    //display_image(img);
+    display_image(img);
     int threshold = otsu(img);
     if(threshold == 0)
         threshold = 1;
     binarize(img, threshold);
-    //display_image(img);
+    display_image(img);
 }
 
 static inline
@@ -190,7 +190,7 @@ int SegmentationDemo(SDL_Surface *img, SDL_Surface *demo)
     drawFP(demo, f->centers, f->ems_vector, fp->indexA);
 
     printf("|     - Finder Pattern and QrCode found and validated\n");
-    //display_image(demo);
+    display_image(demo);
     
     struct GeoImg *g = GeoTransform(img, fp);
     printf("|     - Affine transformation\n");
@@ -203,7 +203,7 @@ int SegmentationDemo(SDL_Surface *img, SDL_Surface *demo)
     printf("|\n");
     printf("| QR Matrix :\n");
     print_mat(qr->mat, qr->version * 4 + 17);
-    into_file(qr->mat, qr->version * 4 + 17, "result_seg.pbm");
+    into_file(qr->mat, qr->version * 4 + 17, "output/res_seg.pbm");
     //free_segmentation(f, fp, g, qr);*/
     SDL_FreeSurface(img);
     SDL_FreeSurface(demo);

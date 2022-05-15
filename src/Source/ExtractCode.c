@@ -346,7 +346,7 @@ void SampleCodeV1E(struct GeoImg *qrimg, struct QrCode *qr, double X)
     int uy = 0;
     for(int y = 7; y >= 0; y--)
     {
-        for(int x = 8; x < 13; x++)
+        for(int x = 0; x < 21; x++)
         {
             mat[y][x] = get_CL(qrimg->img, UT1x + (x - 8) * X, UT1y + (y - 6) *
 Y);
@@ -421,7 +421,7 @@ void SampleCodeV1(struct GeoImg *qrimg, struct QrCode *qr, double X)
     int uy = 0;
     for(int y = 7; y >= 0; y--)
     {
-        for(int x = 8; x < 13; x++)
+        for(int x = 0; x < 21; x++)
         {
             if(get_BW(qrimg->img, UT1x + (x - 8) * X, UT1y + (y - 6) * Y) == 0)
                 mat[y][x] = '1';
@@ -447,7 +447,7 @@ void SampleCodeV1(struct GeoImg *qrimg, struct QrCode *qr, double X)
   
     for(int y = 8; y < 21; y++)
     {
-        for(int x = 8; x < 21 ; x++)
+        for(int x = 0; x < 21 ; x++)
         {
             int cX = round(LT1x + (x - 6) * X + ux);
             int cY = round(UT1y + (y - 6) * Y + uy);
@@ -614,61 +614,6 @@ struct QrCode *extract_QrCode (struct GeoImg *qrimg)
     else if( V == 1)
     {
         SampleCodeV1(qrimg, qr, X);  
-    }
-    else
-    {
-        warn("V = %d", V);
-        err(EXIT_FAILURE, "Segmentation error : Corrupted QrCode size");
-    }
-    
-    return qr;
-}
-
-struct QrCode *extract_EpCode (struct GeoImg *qrimg, struct GeoImg *coimg)
-{
-    struct QrCode *qr = malloc(sizeof(struct QrCode));
-    
-    double D = sqrt(pow(qrimg->coordA[0] - qrimg->coordB[0], 2) +
-    pow(qrimg->coordA[1] - qrimg->coordB[1], 2));
-    
-    int WA = GetWidthFP(qrimg->img, qrimg->coordA[0], qrimg->coordA[1]);
-    int WB = GetWidthFP(qrimg->img, qrimg->coordB[0], qrimg->coordB[1]);
-    int WC = GetWidthFP(qrimg->img, qrimg->coordC[0], qrimg->coordC[1]);
-    int HA = GetHeightFP(qrimg->img, qrimg->coordA[0], qrimg->coordA[1]);
-    int HB = GetHeightFP(qrimg->img, qrimg->coordB[0], qrimg->coordB[1]);
-    int HC = GetHeightFP(qrimg->img, qrimg->coordC[0], qrimg->coordC[1]);
-    
-    if(WA == 0 || WB == 0 || WC == 0 || HA == 0 || HB == 0 || HC == 0)
-        err(EXIT_FAILURE, "Segmentation error : Bad Geometry");
-    
-    double X = (WA + WB) / 14;
-
-    int V = round((D / X - 10) / 4);
-    
-    if( V >= 7 && V <= 40)
-    {
-        V = GetVersionV7_40N2(qrimg, HB, WB);
-        /*if( V == 6)
-        {
-            V = GetVersionV7_40N1(qrimg, HC, WB);
-            if( V == 6)
-            {
-                //warn("wrong version maybe");
-                //err(EXIT_FAILURE, "Segmentation error : Version Corrupted");
-                SampleCodeV7_40E(qrimg, qr, WA, WB, WC, HA, HB, HC, coimg->img);
-            }
-        }*/
-        qr->version = V;
-        SampleCodeV7_40E(qrimg, qr, WA, WB, WC, HA, HB, HC, coimg->img);
-    }
-    else if( V >= 2 && V <= 6)
-    {
-        qr->version = V;
-        SampleCodeV2_6E(qrimg, qr, WA, WB, WC, HA, HB, HC, coimg->img);
-    }
-    else if( V == 1)
-    {
-        SampleCodeV1E(coimg, qr, X);  
     }
     else
     {

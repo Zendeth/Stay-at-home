@@ -88,7 +88,7 @@ fix_libs:
 	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/run/current-system/sw/lib/
 
 clean:
-	rm -f main demo test*.pbm
+	rm -f main demo test*.pbm res_decode.txt res_seg.pbm
 	rm -rf tmp
 	rm -rf bin
 	rm -rf output

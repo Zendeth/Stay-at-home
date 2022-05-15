@@ -7,6 +7,5 @@
 # include <err.h>
 
 struct QrCode *extract_QrCode(struct GeoImg *qrimg);
-struct QrCode *extract_EpCode(struct GeoImg *qrimg, struct GeoImg *coimg);
 
 # endif
