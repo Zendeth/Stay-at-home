@@ -3,7 +3,7 @@
 
 #include "pbm.h"
 
-void decode_demo(const char* filename);
+void decode_demo();
 void qrc_decode(scanner_t* scanner);
 
 #endif

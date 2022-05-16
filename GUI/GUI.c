@@ -35,5 +35,4 @@ int gui(int argc, char** argv)
 
 	gtk_main();
 	return EXIT_SUCCESS;
-
 }
