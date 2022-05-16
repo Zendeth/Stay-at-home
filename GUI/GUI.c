@@ -21,7 +21,7 @@ GtkBuilder		*builder;
 
 // https://developer-old.gnome.org/gobject/stable/gobject-Signals.html#g-signal-connect
 
-int gui(int argc, char** argv)
+int main(int argc, char** argv)
 {
 	gtk_init(&argc, &argv);
 
