@@ -7,15 +7,15 @@
 #include "../Header/data.h"
 
 
-void decode_demo(const char* filename)
+void decode_demo()
 {
 	scanner_t scanner;
 	scanner.c = 0;
 	scanner.verbosity = 0;
-	FILE* f =  fopen(filename, "r");
+	FILE* f =  fopen("output/res_seg.pbm", "r");
 	if (!f)
 	{
-		fprintf(stderr, "Could create file '%s'\n", filename);
+		fprintf(stderr, "Could create file '%s'\n", "output/res_seg.pbm");
 		exit(1);
 	}
 	load_pbm(&scanner, f);

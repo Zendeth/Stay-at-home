@@ -52,5 +52,5 @@ int main(int argc, char *argv[])
 
     save_image(img,"output/test.png");*/
     SegmentationDemo(img,show);
-	decode_demo(argv[2]);
+	decode_demo();
 }
