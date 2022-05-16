@@ -384,7 +384,7 @@ double CPyp, double CPAx, double CPCx, int AP, int pY)
     double cX;
     double cY;
     double weightY; 
-    for(int y = 7; y < AP + 7; y++)
+    for(int y = 0; y < AP + 7; y++)
     {
         for(int x = 5; x >= 0; x--)
         {
@@ -424,7 +424,7 @@ double CPxp, double CPAy, double CPBy, int AP, int pX)
     double weightX;
     for(int y = 5; y >= 0; y--)
     {
-        for(int x = 7; x < AP + 7; x++)
+        for(int x = 0; x < AP + 7; x++)
         {
             weightX = ((double)AP - (x - 6))/(double)AP;
             aX = (XA + CPxp * (x - 6)) * weightX;
@@ -462,7 +462,7 @@ double CPx, double CPCy, double CPy, int AP, int pX, int SNB)
     double weightX;
     for(int y = AP + 6; y < AP + 13; y++)
     {
-        for(int x = 7; x < AP + 7; x++)
+        for(int x = 0; x < AP + 7; x++)
         {
             //warn("%d %d", x, y);
             weightX = ((double)AP - (x - 6))/(double)AP;
@@ -501,7 +501,7 @@ double CPx, double CPBx, double CPy, int AP, int pY, int SNB)
     double dX;
     double dY;
     double weightY;
-    for(int y = 7; y < AP + 7; y++)
+    for(int y = 0; y < AP + 7; y++)
     {
         for(int x = AP + 6; x < AP + 13; x++)
         {
