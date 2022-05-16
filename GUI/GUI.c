@@ -44,10 +44,14 @@ int gui(int argc, char** argv)
 	//g_signal_connect(button_next, "clicked", G_CALLBACK(next_fixed), NULL);
 	//g_signal_connect(button_back, "clicked", G_CALLBACK(previous_fixed), NULL);
 	g_signal_connect(button_aboutus, "clicked", G_CALLBACK(gtk_widget_hide), &mainpage);
+	g_signal_connect(button_start, "clicked", G_CALLBACK(on_button_next_clicked), &mainpage, &qrcodepage);
+	g_signal_connect(button_back_qr, "clicked", G_CALLBACK(on_button_back_clicked), &qrcodepage, &mainpage);
+	g_signal_connect(button_back_de, "clicked", G_CALLBACK(on_button_back_clicked), &decodepage, &qrcodepage);
+	g_signal_connect(button_back_en, "clicked", G_CALLBACK(on_button_back_clicked), &encodepage, &qrcodepage);
+	g_signal_connect(button_next_de, "clicked", G_CALLBACK(on_button_next_clicked), &qrcodepage, &decodepage);
+	g_signal_connect(button_next_en, "clicked", G_CALLBACK(on_button_next_clicked), &qrcodepage, &encodepage);
 
-	g_signal_connect(button_start, "clicked", G_CALLBACK(gtk_widget_hide), &mainpage);
-
-	//gtk_widget_show_all(GTK_WIDGET(window));
+	gtk_widget_show(&mainpage);
 
 	gtk_main();
 	
@@ -55,3 +59,14 @@ int gui(int argc, char** argv)
 
 }
 
+void on_button_next_clicked(GtkWidget *before, GtkWidget *after)
+{
+	gtk_widget_hide(before);
+	gtk_widget_show(after);
+}
+
+void on_button_back_clicked(GtkWidget *before, GtkWidget *after)
+{
+	gtk_widget_hide(before);
+	gtk_widget_show(after);
+}
