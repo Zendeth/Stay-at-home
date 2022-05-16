@@ -70,13 +70,6 @@
                     <property name="height-request">80</property>
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <child>
-                      </object>
-                      <packing>
-                        <property name="x">232</property>
-                        <property name="y">141</property>
-                      </packing>
-                    </child>
                   </object>
                   <packing>
                     <property name="x">-71</property>
