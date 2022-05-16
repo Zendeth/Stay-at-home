@@ -4,12 +4,19 @@
 
 GtkWidget		*window;
 GtkWidget		*button_next;
-GtkWidget		*button_back;
+GtkWidget		*button_back_qr;
+GtkWidget		*button_start;
 GtkWidget		*button_aboutus;
+GtkWidget		*button_back_de;
+GtkWidget		*button_next_de;
 GtkWidget		*mainpage;
+GtkWidget		*button_back_en;
+GtkWidget		*button_next_en;
+GtkWidget		*image;
 GtkWidget		*qrcodepage;
 GtkWidget		*decodepage;
 GtkWidget		*encodepage;
+GtkWidget		*url;
 GtkBuilder		*builder;
 
 // https://developer-old.gnome.org/gobject/stable/gobject-Signals.html#g-signal-connect
@@ -17,9 +24,6 @@ GtkBuilder		*builder;
 int gui(int argc, char** argv)
 {
 	gtk_init(&argc, &argv);
-
-	webkit_web_view_get_type();
-	webkit_settings_get_type();
 
 	builder = gtk_builder_new_from_file("GUI.glade");
 
@@ -46,6 +50,7 @@ int gui(int argc, char** argv)
 	//Connects event handlers.
 	//g_signal_connect(button_next, "clicked", G_CALLBACK(next_fixed), NULL);
 	//g_signal_connect(button_back, "clicked", G_CALLBACK(previous_fixed), NULL);
+	/*
 	g_signal_connect(button_aboutus, "clicked", G_CALLBACK(gtk_widget_hide), &mainpage);
 	g_signal_connect(button_start, "clicked", G_CALLBACK(on_button_next_clicked), &mainpage);
 	g_signal_connect(button_back_qr, "clicked", G_CALLBACK(on_button_back_clicked), &qrcodepage);
@@ -53,8 +58,9 @@ int gui(int argc, char** argv)
 	g_signal_connect(button_back_en, "clicked", G_CALLBACK(on_button_back_clicked), &encodepage);
 	g_signal_connect(button_next_de, "clicked", G_CALLBACK(on_button_next_de_clicked), &qrcodepage);
 	g_signal_connect(button_next_en, "clicked", G_CALLBACK(on_button_next_en_clicked), &qrcodepage);
+	*/
 
-	gtk_widget_show(&mainpage);
+	gtk_widget_show(mainpage);
 
 	gtk_main();
 	
@@ -62,21 +68,24 @@ int gui(int argc, char** argv)
 
 }
 
+/*
 void on_button_next_de_clicked(GtkWidget *before)
 {
 	gtk_widget_hide(before);
-	//gtk_widget_show(after);
-	url = "";
+	GtkWidget *after = GTK_WIDGET(gtk_builder_get_object(builder, "button_next_de"));
+	gtk_widget_show(after);
+	//url = "";
 	// url is the output 
 	GtkTextBuffer *buf = gtk_text_view_get_buffer(GTK_TEXT_VIEW(url));
-	// gtk_text_buffer_set_text(buf, url);
+	gtk_text_buffer_set_text(buf, url);
 	
 }
 
 void on_button_next_en_clicked(GtkWidget *before)
 {
 	gtk_widget_hide(before);
-	//gtk_widget_show(after);
+	GtkWidget *after = GTK_WIDGET(gtk_builder_get_object(builder, "button_next_en"));
+	gtk_widget_show(after);
 	// gtk_image_set_from_file(image, path);
 }
 
@@ -84,4 +93,4 @@ void on_button_back_clicked(GtkWidget *before)
 {
 	gtk_widget_hide(before);
 	//gtk_widget_show(after);
-}
+}*/
