@@ -71,14 +71,6 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <child>
-                      <object class="WebKitWebView" type-func="webkit_web_view_get_type">
-                        <property name="width-request">400</property>
-                        <property name="height-request">400</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
                       </object>
                       <packing>
                         <property name="x">232</property>
